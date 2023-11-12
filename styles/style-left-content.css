@@ -1,0 +1,318 @@
+
+#content-left {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    margin-left: 20px;
+    justify-content: center;
+    text-align: center;
+    background-color: #176fd7;
+}
+
+#header-left{
+    text-align: center;
+    display: block;
+    width: 100%;
+}
+
+#select-label-backgraund,
+#logo_selection {
+    margin: 0;
+    width: 150px;
+    height: 30px;
+    border-radius: 20px;
+}
+
+.textSettings {
+    color:rgb(255, 255, 255);
+    font-size: 20px;
+    margin: 5px 0 10px 0;
+    cursor: context-menu;
+}
+
+#delete-logo {
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+#tableSimbol {
+    display: block;
+    border-radius: 5px;
+    position: absolute;
+    width: 480px;
+    height: 0px;
+    background-color: rgb(255, 255, 255);
+    overflow: auto;
+    z-index: 255;
+}
+
+#tableSimbol p {
+    margin: 2px;
+    font-size: 20px;
+}
+
+#off {
+    position: sticky;
+    top: 1px;
+    display: block;
+    text-align: right;
+}
+
+#buttonOff {
+    border-radius: 50%;
+    background-color: rgb(241, 98, 98);
+    cursor: pointer;
+}
+
+#histori-header,
+#text-string,
+#header-left,
+#left-select-logo,
+#haeder-right {
+    color: aliceblue;
+}
+
+#logo-left-select {
+    margin: 10px 0 10px 0;
+}
+
+#left-select-logo {
+    margin: 0;
+    margin-bottom: 5px;
+    font-size: 19px;
+    text-align: center;
+    cursor: context-menu;
+}
+#logos {
+    text-align: center;
+    border-radius: 5px;
+    width: 150px;
+    height: 30px;
+}
+
+#selectPx {
+    border-radius: 5px;
+    width: 60px;
+    height: 30px;
+}
+
+
+.text-padding,
+#pixel-text {
+    display:inline;
+    margin: 0;
+    color: aliceblue;
+    cursor: context-menu;
+}
+
+#input-padding-left,
+#input-padding-bottom,
+#inpud-pixel {
+    display: inline;
+    width: 55px;
+    height: 25px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+#degrees {
+    margin-top: 20px;
+    border-radius: 5px;
+    width: 67px;
+    height: 25px;
+}
+
+#text-tags,
+#text,
+#text-string,
+#header,
+#header-left,
+#haeder-right {
+    cursor: default;
+    padding: 0;
+    margin: 0;
+    margin: 5px 0 5px 0;
+    cursor: context-menu;
+}
+
+#logo-select {
+    display: block;
+    text-align: center;
+}
+
+#bold-text,
+#scaling,
+#histori-header,
+#text-string,
+#text,
+#text-tags {
+    display: block;
+    color: white;
+    text-align: start;
+    font-size: 20px;
+    margin: 0 10 0 10;
+    cursor: context-menu;
+}
+
+.click {
+    margin-top: 5px;
+    border-radius: 30px;
+    background-color: rgb(33, 177, 33);
+    width: 40px;
+    height: 20px;
+}
+
+#string-input {
+    width: 350px;
+    height: 24px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.string {
+    text-align: start;
+}
+
+#text-string {
+    text-align: center;
+    cursor: context-menu;
+}
+
+#editor-text-string {
+    border-radius: 5px;
+    width: 350px;
+    height: 25px;
+}
+
+#сlean-the-tag,
+#button-tags,
+#add-string,
+#buttonSinbol,
+#save-string,
+#bar,
+#change-label,
+#delete-string {
+    border-radius: 5px;
+    display: inline;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#numbar-of-tags {
+    display: block;
+    margin-top: 0;
+    text-align: center;
+}
+
+#number-tags {
+    color: black;
+    border-radius: 10px;
+    width: 40px;
+    height: 30px;
+}
+
+.move {
+    text-align: center;
+    align-self: center;
+}
+.px {
+    margin-bottom: 4px;
+}
+
+#text-tags {
+    text-align: center;
+    cursor: context-menu;
+}
+
+#settings-history {
+    text-align: center;
+    display:block;
+}
+#name-history-label {
+    width: 320px;
+    border-radius: 5px;
+    height: 25px;
+}
+
+#addHistory {
+    text-align: center;
+    margin: auto;
+    margin-top: 0;
+}
+
+#save-string {
+    margin: 10px 0 10px 0;
+}
+
+.bold {
+    text-align: center;
+    cursor: context-menu;
+}
+
+#histori-header {
+    text-align: center;
+    cursor: default;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+#Stans {
+    display: block;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.stan{
+    display: inline-flex;
+    margin: 0;
+    padding: 2px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: rgb(172, 170, 170);
+}
+
+.stan p {
+    color: rgb(253, 253, 253);
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+#addHistory-text {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: 21px;
+    cursor: default;
+    margin: 0 0 10px 0;
+}
+
+#scaling {
+    text-align: center;
+}
+
+#params {
+    margin: 0;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+}
+#text-params {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+}
+
+#select-params {
+    border-radius: 5px;
+    height: 30px;
+}
+
+#button-params {
+    border-radius: 5px;
+    margin-top: 10px;
+}

@@ -1,0 +1,108 @@
+#container-right {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #176fd7;
+}
+
+#label-content {
+    z-index: 1;
+    width: 100%;
+}
+
+#label-classic,
+#label-blue {
+    border-radius: 5px;
+    padding: 2px;
+}
+#label-classic {
+    margin-right: 20px;
+}
+
+#label-background{
+    background-image: url(/SVG/label-color/label-white.svg);
+    background-position: center ;
+    background-repeat: no-repeat;
+    background-size: auto;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 632.5px;
+    height: 620px;
+    z-index: 1;
+    margin:auto;
+}
+
+#label-borders {
+    margin: auto;
+    position: absolute;
+    top: 102px;
+    left: 1147px;
+    z-index: 2;
+    width: 630px;
+    height: 550px;
+}
+
+#button-printer {
+    display: block;
+}
+
+#chyase-label {
+    display: inline-flex;
+    position: fixed;
+    bottom: 7vh;
+    right: 60vh;
+    font-size: 12px;
+    width: 100px;
+    height: 50px;
+    border-radius: 20px;
+    background-color: rgb(254, 254, 255);
+    cursor: pointer;
+}
+
+#sending {
+    font-size: 12px;
+    display: inline-flex;
+    position: fixed;
+    bottom: 7vh;
+    right: 20vh;
+    width: 100px;
+    height: 50px;
+    border-radius: 20px;
+    background-color: rgb(254, 254, 255);
+    cursor: pointer;
+}
+
+#bar {
+    border-radius: 5px;
+}
+
+#text-printer {
+    display: block;
+}
+
+#text-printer-1,
+#text-printer-2 {
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    display: inline;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    cursor:context-menu;
+}
+#text-printer-1 {
+    display: inline-flex;
+    position: fixed;
+    bottom: 13vh;
+    right: 45vh;
+    margin-right: 60px;
+}
+#text-printer-2 {
+    display: inline-flex;
+    position: fixed;
+    right: 3vh;
+    bottom: 13vh;
+    margin-right: 60px;
+}

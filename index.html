@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редактор Бирки</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/favicon-16x16.png">
+    <link rel="manifest" href="./images/favicons/site.webmanifest">
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/style-left-content.css">
+    <link rel="stylesheet" href="/styles/style-button.css">
+    <link rel="stylesheet" href="/styles/style-right-content.css">
+    <link rel="stylesheet" href="/styles/style-media.css">
+    <link rel="stylesheet" href="/styles/style-select-history.css">
+    <link rel="stylesheet" href="/styles/style-error.css">
+    <link rel="stylesheet" href="/styles/style-section.css">
+    <link rel="stylesheet" href="/styles/style-section-content/section-manag-content.css">
+    <link rel="stylesheet" href="/styles/style-section-user/section-user.css">
+</head>
+
+<body>
+    <!--? Заголовок-->
+    <div id="nav-1" class="resetSelection">
+        <div id="nav-bar">
+            <p id="header">Редактор Бирки</p>
+        </div>
+        <div>
+            <p id="test">Тестовая-среда</p>
+        </div>
+        <!--? Блок Авторизации -->
+        <div id="block-authorization">
+            <input class="input-text-authorization" id="input-login" type="text" placeholder="Введите Логин">
+            <input class="input-text-authorization" id="input-password" type="password" placeholder="Введите Пароль">
+            <button id="button-confirmation-authorization">Войти</button>
+        </div>
+        <!--? Блок отображения Пользователя -->
+        <div id="user-indication">
+            <div id="user-identification-text"></div>
+            <button id="exit-user">Выйти</button>
+        </div>
+    </div>
+    <!--? Блок управления станами -->
+    <div id="Stans">
+        <div class="stan" id="350-Stan">
+            <p>Стан-350</p>
+        </div>
+        <div class="stan" id="210-Stan">
+            <p>Стан-210</p>
+        </div>
+        <div class="stan" id="212-Stan">
+            <p>Стан-212</p>
+        </div>
+    </div>
+    <!--? Блок Уведомлений об ошибке-->
+    <div id="errors">
+        <p id="text-error"></p>
+    </div>
+    <!--? Блок Уведомлений ручной печати-->
+    <div id="alert-print">
+        <p id="text-alert-print"></p>
+        <button id="ok-print">Отправить</button>
+        <button id="no-print">Отменить</button>
+    </div>
+    <!--? Блок Уведомлений авто печати-->
+    <div id="alert-printAuto">
+        <p id="text-alert-printAuto"></p>
+        <button id="ok-printAuto">Отправить</button>
+        <button id="no-printAuto">Отменить</button>
+    </div>
+    <!--? Основной контент-->
+    <section id="row-section">
+        <!--? Блок управления Секциями -->
+        <div id="control-button">
+            <div class="button-control-section" id="button-section-editor">Редактор Шаблонов</div>
+            <div class="button-control-section" id="button-section-user-editor">Редактор Пользователей</div>
+            <div class="button-control-section" id="button-section-logo-editor">Редактор Данных</div>
+        </div>
+        <!--? Секция редактирования бирки -->
+        <section id="section-editor">
+            <div id="row">
+                <!--? Контент слева-->
+                <div id="container-left">
+                    <h2 id="header-left">Позиционирование данных</h2>
+                    <div id="logo-left-select">
+                        <p id="left-select-logo">Выберите логотип</p>
+                        <div id="logo-select">
+                            <select id="logo_selection" name="select-logos">
+                            </select>
+                        </div>
+                    </div>
+                    <div id="content-left">
+                        <div id="settings">
+                            <p class="textSettings">Передвинуть</p>
+                            <div class="padding-bottom">
+                                <p class="text-padding">Отступ снизу</p>
+                                <input type="number" id="input-padding-bottom">
+                            </div>
+                            <div class="pading-left">
+                                <p class="text-padding">Отступ слева</p>
+                                <input type="number" id="input-padding-left">
+                            </div>
+                            <button id="apply-indents">Применить</button>
+                        </div>
+                        <div class="string">
+                            <p id="text-string">Добавить строку</p>
+                            <input id="editor-text-string" type="text" placeholder="Введите данные">
+                            <button id="add-string">Добавить</button>
+                            <button id="delete-string">Удалить</button>
+                            <button id="buttonSinbol">Символы</button>
+                            <button id="bar">Штрих Код</button>
+                            <div id="tableSimbol">
+                                <div id="off">
+                                    <button id="buttonOff">X</button>
+                                </div>
+                                <p>A - Ǻ ǻ α ά Ά Ä ª ä Å À Á Â å ã â à á Ã</p>
+                                <p>B - β ß Ђ</p>
+                                <p>C - Ç ¢ ç Č ċ Ċ ĉ ς Ĉ ć Ć č ¢</p>
+                                <p>D - Ď ď Đ đ ð ∂</p>
+                                <p>E - £ Ē ℮ ē Ė ė Ę ě Ě ę Έ ê ξ Ê È € É ∑ é è ع Є є έ ε</p>
+                                <p>G - Ĝ ĝ Ğ ğ Ġ ġ Ģ ģ פ</p>
+                                <p>H - Ĥ Ħ ħ Ή Ћ ђ</p>
+                                <p>I - ί ι Ï Ί Î ì Ì í Í î ϊ ΐ Ĩ ĩ Ī ī Ĭ ĭ İ į Į</p>
+                                <p>J - Ĵ ĵ</p>
+                                <p>K - Ќ k ќ ķ Ķ ﻸ</p>
+                                <p>L - ℓ Ŀ ŀ £ Ĺ ĺ Ļ ļ λ ₤ Ł ł ľ Ľ</p>
+                                <p>N - η ñ ח Ñ ή ŋ Ŋ Ń ń Ņ ņ Ň ň ŉ</p>
+                                <p>O - Ό ó ό σ ǿ Ǿ Θ ò Ó Ò Ô ô Ö ö Õ õ ø Ø Ō ō</p>
+                                <p>P - þ Þ ρ Ꭾ</p>
+                                <p>Q - q Q ᶐ Ǭ ǭ ჹ</p>
+                                <p>R - ř Ř ŗ Ŗ ŕ Ŕ</p>
+                                <p>S - ى § Ś ś š Š ş Ş ŝ Ŝ ∫ $</p>
+                                <p>T - † T t τ ΐ Ţ ţ Ť ť ŧ Ŧ</p>
+                                <p>U - Ũ ύ ϋ Ù ú Ú ΰ ù Û û Ü Џ ü Ũ ũ Ū ū Ŭ ŭ ų Ų ű Ű ů Ů</p>
+                                <p>W - ẃ Ẃ ẁ Ẁ ẅ ώ ω ŵ Ŵ Ẅ</p>
+                            </div>
+                        </div>
+                        <div id="numbar-of-tags">
+                            <p id="text-tags">Количество бирок</p>
+                            <select id="number-tags" type="number">
+                                <option value="1">1</option>
+                                <option selected="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>
+                        </div>
+                        <div class="move">
+                            <div class="px">
+                                <p class="text-padding">По пиксельно</p>
+                                <input id="inpud-pixel" type="number" placeholder="px">
+                            </div>
+                            <button class="button-group" id="button-top">⬆</button>
+                            <button class="button-group" id="button-botton">⬇</button>
+                            <button class="button-group" id="button-left">⬅</button>
+                            <button class="button-group" id="button-right">➞</button>
+                            <button class="button-group" id="button-turn-left">↶</button>
+                            <button class="button-group" id="button-turn-right">↷</button>
+                        </div>
+                        <div class="bold">
+                            <p class="text">Жирный шрифт</p>
+                            <button id="fatty">Установить</button>
+                            <button id="fatty-off">Убрать</button>
+                        </div>
+                        <div id="scaling">
+                            <p class="text">Размер Шрифта</p>
+                            <select name="px" id="selectPx">
+                                <option value="0"></option>
+                                <option value="16">30,20</option>
+                                <option value="18">40,30</option>
+                                <option value="20">50,40</option>
+                                <option value="22">60,50</option>
+                            </select>
+                            <button id="plus">Применить</button>
+                        </div>
+                        <div id="settings-history">
+                            <p id="histori-header">Сохранение шаблона бирки</p>
+                            <input id="name-history-label" type="text" placeholder="Введите имя">
+                            <button id="change-label">Создать</button>
+                        </div>
+                        <div id="addHistory">
+                            <p id="addHistory-text">Список шаблонов бирок</p>
+                            <div class="select-box-history">
+                                <div class="select-option-history">
+                                    <input id="soValue" type="text" readonly name="">
+                                </div>
+                                <div class="content-history">
+                                    <div class="search">
+                                        <input type="text" id="optionSearch" placeholder="Поиск" name="">
+                                    </div>
+                                    <ul class="option-history">
+                                    </ul>
+                                </div>
+                            </div>
+                            <button id="save-string">Сохранить</button>
+                            <button id="сlean-the-tag">Очистить бирку</button>
+                        </div>
+                        <div id="params">
+                            <p id="text-params">Параметры Бирки</p>
+                            <select id="select-params">
+                                <option value=""></option>
+                                <option value="Gost">Гост-&lt&ltGOST&gt&gt</option>
+                                <option value="HEAT">Плавка-&lt&ltHEAT&gt&gt</option>
+                                <option value="DIAMETER">Диаметр-&lt&ltDIAMETER&gt&gt</option>
+                                <option value="STEEL_GRADE">Марка стали-&lt&ltSTEEL_GRADE&gt&gt</option>
+                                <option value="COIL_NO">Номер бунта-&lt&ltCOIL_NO&gt&gt</option>
+                                <option value="WEIGHT">Вес бунта-&lt&ltWEIGHT&gt&gt</option>
+                                <option value="CUSTOMER">Заказчик-&lt&ltCUSTOMER&gt&gt</option>
+                                <option value="SHIFT">Смена-&lt&ltSHIFT&gt&gt</option>
+                                <option value="KLASS">Класс-&lt&ltKLASS&gt&gt</option>
+                                <option value="ProductType">Код продукции-&lt&ltProductType&gt&gt</option>
+                                <option value="COIL_WGT_DATE">Время взвешивания-&lt&ltCOIL_WGT_DATE&gt&gt</option>
+                                <option value="SPECIFICATION">Спецификация-&lt&ltSPECIFICATION&gt&gt</option>
+                                <option value="LOT">Лот-&lt&ltLOT&gt&gt</option>
+                                <option value="CUTLENGTH">Длина-&lt&ltCUTLENGTH&gt&gt</option>
+                            </select>
+                            <button id="button-params">Добавить</button>
+                        </div>
+                    </div>
+                </div>
+                <!--? Контент справа-->
+                <div id="container-right">
+                    <h2 id="haeder-right">Бирка</h2>
+                    <select id="select-label-backgraund">
+                        <option value="white">Белый</option>
+                        <option value="blue">Синий</option>
+                        <option value="deepskyblue">Тёмно-голубой</option>
+                        <option value="red">Красная</option>
+                        <option value="coral">Коралл</option>
+                        <option value="saddlebrown">Светло-коричневый</option>
+                        <option value="hotpink">Ярко-Розовый</option>
+                        <option value="violet">Фиолетовый</option>
+                        <option value="orang">Оранжевый</option>
+                        <option value="yellow">Жёлтый</option>
+                        <option value="limegreen">Салатовый</option>
+                        <option value="dimgray">Тусклый-серый</option>
+                    </select>
+                    <div id="label-content">
+                        <div id="label-background">
+                        </div>
+                    </div>
+                    <div id="text-printer">
+                        <p id="text-printer-1">Отправить шаблон на ручную печать</p>
+                        <p id="text-printer-2">Отправить шаблон на авто печать</p>
+                    </div>
+                    <div id="button-printer">
+                        <button id="sending">Отправить шаблон в авто.</button>
+                        <button id="chyase-label">Отправить шаблон в руч.</button>
+                    </div>
+                    <div id="label-borders">
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--? Секция редактирования и контроля пользователей -->
+        <section id="section-UserLay-editor">
+            <div id="row-1">
+                <div id="row-1-left">
+                    <div id="user-list">
+                        <div class="person-date">
+                            <p id="text-login">Логин:</p>
+                            <input class="input-text-user" id="input-login-user">
+                        </div>
+                        <div class="person-date">
+                            <p id="text-password">Пароль:</p>
+                            <input type="text" class="input-text-user" id="input-password-user">
+                        </div>
+                        <div class="person-date">
+                            <p id="text-role">Должность:</p>
+                            <select class="select-text-user" id="select-role-user">
+                                <option value=""></option>
+                                <option value="operator">Оператор</option>
+                                <option value="administrator">Бригадир</option>
+                                <option value="root">Заместитель-Мастера</option>
+                            </select>
+                        </div>
+                        <div class="person-date">
+                            <p id="text-stan-user">Стан:</p>
+                            <select class="select-text-user" id="select-stan-user">
+                                <option value=""></option>
+                                <option value="mill350">Стан-350</option>
+                                <option value="mill210">Стан-210</option>
+                                <option value="mill212">Стан-212</option>
+                                <option value="all">Все</option>
+                            </select>
+                        </div>
+                        <div class="person-date">
+                            <p id="text-name-user">ФИО:</p>
+                            <input type="text" class="input-text-user" id="input-name-user">
+                        </div>
+                        <button id="new-add-user">Новый</button>
+                        <button id="save-data-user">Сохранить</button>
+                        <button id="delet-data-user">Удалить</button>
+                        <button id="clear-data-user">Очистить</button>
+                    </div>
+                    <div id="block-management-user">
+                        <div id="header-management-user">
+                            <p id="header-select-user">Список Пользователей</p>
+                            <select name="select-login-user" id="select-login">
+                            </select>
+                        </div>
+                        <div id="section-management-user-date">
+                            <p id="header-list-get-auto-print">История отправлений на Авто. Печать</p>
+                            <div id="history-get-auto-print">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="row-1-right">
+                    <div id="header-ro-1-right">
+                        Контроль отправки на Авто. Печать
+                    </div>
+                    <button id="new-data-user-control">Обновить Данные</button>
+                    <div id="block-row-1-right">
+                        <div class="block-control-print-stan">
+                            <div id="control-print-350-stan">
+                                <p class="header-name-stan">Стан-350</p>
+                                <div class="block-date-control-user">
+                                    <p class="header-name-stan">Должность:</p>
+                                    <div id="role-user-350">
+
+                                    </div>
+                                </div>
+                                <div class="block-date-control-user">
+                                    <p class="header-name-stan">Шаблон:</p>
+                                    <div id="label-name-user-350">
+
+                                    </div>
+                                </div>
+                                <div class="block-date-control-user">
+                                    <p class="header-name-stan">Дата:</p>
+                                    <div id="date-user-350">
+
+                                    </div>
+                                </div>
+                                <div class="block-date-control-user">
+                                    <p class="header-name-stan">Время:</p>
+                                    <div id="time-user-350">
+
+                                    </div>
+                                </div>
+                                <div class="block-date-control-user">
+                                    <p class="header-name-stan">ФИО:</p>
+                                    <div id="name-user-350">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block-control-print-stan">
+                            <div id="control-print-210-stan">
+                                <p class="header-name-stan">Стан-210</p>
+                                <div class="block-date-control-user">
+                                    <p class="header-name-stan">Должность:</p>
+                                    <div id="role-user-210">
+
+                                    </div>
+                                </div>
+                                <div class="block-date-control-user">
+                                    <p class="header-name-stan">Шаблон:</p>
+                                    <div id="label-name-user-210">
+
+                                    </div>
+                                </div>
+                                <div class="block-date-control-user">
+                                    <p class="header-name-stan">Дата:</p>
+                                    <div id="date-user-210">
+
+                                    </div>
+                                </div>
+                                <div class="block-date-control-user">
+                                    <p class="header-name-stan">Время:</p>
+                                    <div id="time-user-210">
+
+                                    </div>
+                                </div>
+                                <div class="block-date-control-user">
+                                    <p class="header-name-stan">ФИО:</p>
+                                    <div id="name-user-210">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block-control-print-stan">
+                            <div id="control-print-212-stan">
+                                <p class="header-name-stan">Стан-212</p>
+                                <div class="block-date-control-user">
+                                    <p class="header-name-stan">Должность:</p>
+                                    <div id="role-user-212">
+
+                                    </div>
+                                </div>
+                                <div class="block-date-control-user">
+                                    <p class="header-name-stan">Шаблон:</p>
+                                    <div id="label-name-user-212">
+
+                                    </div>
+                                </div>
+                                <div class="block-date-control-user">
+                                    <p class="header-name-stan">Дата:</p>
+                                    <div id="date-user-212">
+
+                                    </div>
+                                </div>
+                                <div class="block-date-control-user">
+                                    <p class="header-name-stan">Время:</p>
+                                    <div id="time-user-212">
+
+                                    </div>
+                                </div>
+                                <div class="block-date-control-user">
+                                    <p class="header-name-stan">ФИО:</p>
+                                    <div id="name-user-212">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--? Секция редактирования и добавления данных -->
+        <section id="section-add-logo-label">
+            <div id="row-2">
+                <div id="row-2-left">
+                    <input type="text" id="input-name-logo" placeholder="Имя логотипа">
+                    <select id="select-rotat-logo">
+                        <option value=""></option>
+                        <option value="0r">0 градусов</option>
+                        <option value="90r">90 градусов</option>
+                        <option value="180r">180 градусов</option>
+                        <option value="260r">260 градусов</option>
+                    </select>
+                    <button id="button-save-logo-code">Добавить</button>
+                    <input type="file" id='add-logo-img' multiple accept="image/*">
+                    <textarea id="input-code-logo" placeholder="Код логотипа"></textarea>
+                </div>
+                <div id="row-2-right">
+                    <select id="select-label-name">
+                        <option value=""></option>
+                    </select>
+                    <button id="button-save-label-code">Редактировать</button>
+                    <button id="button-delete-label-code">Удалить</button>
+                    <textarea id="input-code-label" placeholder="Код Шаблона"></textarea>
+                </div>
+            </div>
+        </section>
+        <!--? Смена темы -->
+        <div id="q-container">
+            <div class="main">
+                <input type="checkbox" id="hidcheck" hidden>
+                <label class="capsule" for="hidcheck" id="capsule-id">
+                    <div class="circle"></div>
+                    <div class="text-signs">
+                        <span id="on"></span>
+                    </div>
+                </label>
+            </div>
+        </div>
+    </section>
+    <!--? Подвал-->
+    <footer>
+        <div id="footer-block">
+            <div id="text-1">
+                <p id="footer-version">Версия приложения: 0.0.1</p>
+            </div>
+            <div id="text-2">
+                <p id="footer-contacts">Служба поддержки: 1032</p>
+            </div>
+        </div>
+    </footer>
+    <script type="module" src="/scripts/label-cod.js"></script>
+</body>
+
+</html>

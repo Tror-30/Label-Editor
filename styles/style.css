@@ -1,0 +1,170 @@
+
+html,
+body {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: clip;
+}
+p {
+    font-family: Swiss721;
+}
+
+button {
+    pointer-events: all;
+}
+
+#nav-bar {
+    display: block;
+    align-items: center;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#user-indication {
+    display: none;
+    padding: 5px;
+    position: fixed;
+    top: 65px;
+    left: 50px;
+    text-align: center;
+    background-color: rgb(221, 217, 212);
+    border: 2px solid rgb(32, 170, 32);
+    border-radius: 5px;
+}
+
+#user-identification-text{
+    display: inline-flex;
+    text-align: center;
+    padding: 5px;
+    margin-right: 20px;
+}
+
+#block-authorization {
+    position: fixed;
+    top: 75px;
+    left: 20px;
+    margin-left: 20px;
+}
+
+.input-text-authorization {
+    width: 170px;
+    height: 25px;
+    border-radius: 10px;
+}
+
+#button-confirmation-authorization {
+    height: 30px;
+    border-radius: 10px;
+    background-color: rgb(209, 215, 218);
+}
+
+#test {
+    display: inline-flex;
+    position: fixed;
+    top: 10px;
+    left: 50px;
+    color: rgb(255, 255, 255);
+    background-color:#f2a405;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#header {
+    font-size: 45px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+    font: bolder;
+}
+
+section {
+    width: 100%;
+    height: 100%;
+}
+
+#row {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #176fd7;
+    background-size: 100%;
+    position: relative;
+}
+
+footer {
+    text-align: center;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    background-color: white;
+}
+#footer-block {
+    display:grid;
+    margin: 0;
+    grid-template-columns: repeat(2,1fr);
+    text-align: center;
+    justify-content: center;
+    background-color: white;
+}
+#footer-block p{
+    margin-top: 4px;
+}
+#text-1{
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    display: block;
+    color: black;
+    margin-left: 10px;
+}
+#text-2{
+    padding: 0;
+    margin: 0;
+    margin-right: 10px;
+    text-align: right;
+    color: black;
+    display: block;
+}
+
+#alert-printAuto,
+#alert-print {
+    display: none;
+    position: absolute;
+    top: 400px;
+    left: 850px;
+    text-align: center;
+    background-color: rgb(252, 252, 252);
+    border-radius: 10px;
+    border: 2px solid black;
+    z-index: 555;
+}
+
+#text-alert-print,
+#text-alert-printAuto {
+    margin: 10px;
+    font-size: 20px;
+}
+
+#ok-printAuto,
+#ok-print {
+    cursor: pointer;
+    margin-right: 60px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#no-printAuto,
+#no-print {
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+

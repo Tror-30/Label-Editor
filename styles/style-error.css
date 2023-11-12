@@ -1,0 +1,20 @@
+#errors {
+    position: absolute;
+    top: 300px;
+    left: 800px;
+    background-color: red;
+    border-radius: 5px;
+    border: 2px solid black;
+    font-size: 16px;
+    display: none;
+    text-align: center;
+    padding: 5px;
+    height: auto;
+    z-index: 555;
+};
+
+#text-error {
+    font-size: 20px;
+    text-align: center;
+}
+
