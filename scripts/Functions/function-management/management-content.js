@@ -1,4 +1,4 @@
-import { fetchLabel } from "../backendRequests.js";
+import { fetchLabel, labelName } from "../backendRequests.js";
 import { closeError } from "../../label-cod.js";
 import { set, set2, ports } from "../../label-cod.js";
 import { stanTarget } from "../backendRequests.js";
@@ -47,6 +47,7 @@ export async function editorLabelCode() {
     closeError();
     document.getElementById('select-label-name').value = '';
     document.getElementById('input-code-label').value = '';
+    labelName();
 };
 
 export async function deleteLabel() {
@@ -72,7 +73,9 @@ export async function deleteLabel() {
     closeError();
     document.getElementById('select-label-name').value = '';
     document.getElementById('input-code-label').value = '';
+    labelName();
 };
+
 async function parsingCodeLabel(codelabel) {
     let code = '';
     let botton = "^XZ" + '\n' + "^XA^PON^LT0^PW1200^LH0,0^XZ";

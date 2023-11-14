@@ -846,6 +846,13 @@ async function savelabelBack(inputHistory) {
     document.getElementById('name-history-label').value = '';
     document.getElementById('soValue').value = '';
     сleanTheTag();
+    if (stan === '350-Stan') {
+        label350()
+    } else if (stan === '210-Stan') {
+        label210()
+    } else if (stan === '212-Stan') {
+        label212()
+    };
 };
 //* Функция контроля за последней отправкой на авто печать
 export async function postControlAutoPrint(stan, controlDate, controlTime, namelabel) {

@@ -1,6 +1,6 @@
 
 import { parsingLogo, parsingString, parsingBarcode } from "./parsingCode.js";
-import { logoChoice, сleanTheTag, insertBarCode, addLogoName, closeError, modifietOff } from "../label-cod.js";
+import { logoChoice, сleanTheTag, addLogoName, closeError, modifietOff } from "../label-cod.js";
 import { constructorlabelCode, numberTagsBack } from "./tagCodeConstructor.js";
 import { set, ports, set2 } from "../label-cod.js";
 import { controlGetAutoPrint } from "./function-management/management-user.js";
