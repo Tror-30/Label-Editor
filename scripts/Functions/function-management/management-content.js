@@ -30,7 +30,7 @@ export async function editorLabelCode() {
     let namelabel = document.getElementById('select-label-name').value + '.ini';
     let stan = stanTarget();
     try {
-        await fetch(`http://10.23.${set[stan]}.${set2}:${ports}/label/Changelabel?labelName=${encodeURI(namelabel)}`,
+        await fetch(`http://10.23.${set[stan]}.${set2}:${ports[stan]}/label/Changelabel?labelName=${encodeURI(namelabel)}`,
             {
                 method: 'post',
                 headers: {
@@ -57,7 +57,7 @@ export async function deleteLabel() {
     selectLabel = selectLabel + '.ini';
     let stan = stanTarget();
     try {
-        await fetch(`http://10.23.${set[stan]}.${set2}:${ports}/Label/LabelDelete?fileName=` + selectLabel, {
+        await fetch(`http://10.23.${set[stan]}.${set2}:${ports[stan]}/Label/LabelDelete?fileName=` + selectLabel, {
             method: 'DELETE',
             headers: {
                 'Access-Control-Allow-Origin': '*',
@@ -106,4 +106,23 @@ async function parsingCodeLabel(codelabel) {
     };
     code = header + code + botton;
     return (code);
+};
+
+export async function getFile() {
+    let error = document.getElementById('errors');
+    let errorText = document.getElementById('text-error');
+    let formData = new FormData();
+    let file = document.querySelector('add-logo-img');
+    formData.append(file.files[0]);
+    try {
+        await fetch(`http://10.23.${set[stan]}.${set2}:${ports[stan]}/...`, {
+            method: 'PUT',
+            body: formData,
+        });
+    } catch {
+        errorText.innerText = 'Ошибка:\nЛоготип не загружен!\nОбратитесь в Службу Поддержки по номеру: 1032.';
+        errorText.style.display = 'block';
+        error.style.display = 'block';
+        return;
+    };
 };

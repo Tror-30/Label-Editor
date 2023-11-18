@@ -37,7 +37,13 @@ const parsing = {
         let height = Number(stringCode.match(/\d+/));                               //? Забираем первое значение вертикального отступа
         stringCode = stringCode.replace(/\d+,/, '');                                //? Удаляем из общей строки вертикального отступа
         let width = Number(stringCode.match(/\d+/));                                //? Забираем второй параметр отступ слева
-        insertBarCode(width, height);
+        let rotate = stringCode.match(/\w+C\w+/);
+        if (rotate === null) {
+            rotate = '^BCR';
+        } else {
+            rotate = '^' + String(rotate);
+        }
+        insertBarCode(width, height, rotate);
     }
 };
 export const parsingLogo = parsing.parsingLogo;

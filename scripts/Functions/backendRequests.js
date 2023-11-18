@@ -62,7 +62,7 @@ const requests = {
         let lnr;
         try {
             strCod = strCod.substr(1, 90);
-            lnr = await fetch(`http://10.23.${set[stan]}.${set2}:${ports}/Label/LogoFromCode`,
+            lnr = await fetch(`http://10.23.${set[stan]}.${set2}:${ports[stan]}/Label/LogoFromCode`,
                 {
                     method: 'post',
                     headers: {
@@ -91,7 +91,7 @@ const requests = {
         text = text + '.ini';
         try {
             text = encodeURI(text);
-            x = await fetch(`http://10.23.${set[stan]}.${set2}:${ports}/Label/labelZebraCode?fileName=` + text, {
+            x = await fetch(`http://10.23.${set[stan]}.${set2}:${ports[stan]}/Label/labelZebraCode?fileName=` + text, {
                 headers: {
                     'Access-Control-Allow-Origin': '*',
                     "Content-type": "application/json"
@@ -130,8 +130,8 @@ const requests = {
         let stan = stanTarget();
         let error = document.getElementById('errors');
         let errorText = document.getElementById('text-error');
-        try {                                                                                                       //? Проверка на Критическую ошибку
-            nameLogo = await fetch(`http://10.23.${set[stan]}.${set2}:${ports}/Label/LogosOptions`, {                       //? Получаем с бека объект имён логотипов
+        try {                                                                                                                       //? Проверка на Критическую ошибку
+            nameLogo = await fetch(`http://10.23.${set[stan]}.${set2}:${ports[stan]}/Label/LogosOptions`, {                         //? Получаем с бека объект имён логотипов
                 method: 'get',
                 headers: {
                     'Access-Control-Allow-Origin': '*',
@@ -166,7 +166,7 @@ const requests = {
         firstLogo = firstLogo.split('logo_').join('');
         let stan = stanTarget();
         try {
-            let y = await fetch(`http://10.23.${set[stan]}.${set2}:${ports}/Label/LogoZebraCode?fileName=` + firstLogo + '&rotation=' + number, {
+            let y = await fetch(`http://10.23.${set[stan]}.${set2}:${ports[stan]}/Label/LogoZebraCode?fileName=` + firstLogo + '&rotation=' + number, {
                 method: 'get',
                 headers: {
                     'Access-Control-Allow-Origin': '*',
@@ -221,7 +221,7 @@ const requests = {
         let stan = stanTarget();
         try {                                                                                              //? Проверка на Критическую ошибку
             document.querySelector('.option-history').innerHTML = '';
-            namelabel = await fetch(`http://10.23.${set[stan]}.${set2}:${ports}/Label/labelsOptions`, {    //? Получаем с бека список имён
+            namelabel = await fetch(`http://10.23.${set[stan]}.${set2}:${ports[stan]}/Label/labelsOptions`, {    //? Получаем с бека список имён
                 method: 'get',
                 headers: {
                     'Access-Control-Allow-Origin': '*',
@@ -285,7 +285,7 @@ const requests = {
         let labelCode = await constructorlabelCode();
         let stan = stanTarget();
         try {
-            await fetch(`http://10.23.${set[stan]}.${set2}:${ports}/Label/ChangePattern?OnSKS=true`, {
+            await fetch(`http://10.23.${set[stan]}.${set2}:${ports[stan]}/Label/ChangePattern?OnSKS=true`, {
                 method: 'post',
                 headers: {
                     'Access-Control-Allow-Origin': '*',
@@ -317,7 +317,7 @@ const requests = {
         let labelCode = await constructorlabelCode();
         let stan = stanTarget();
         try {
-            await fetch(`http://10.23.${set[stan]}.${set2}:${ports}/Label/ChangePattern?OnSKS=false`, {
+            await fetch(`http://10.23.${set[stan]}.${set2}:${ports[stan]}/Label/ChangePattern?OnSKS=false`, {
                 method: 'post',
                 headers: {
                     'Access-Control-Allow-Origin': '*',

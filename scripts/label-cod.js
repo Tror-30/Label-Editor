@@ -5,32 +5,37 @@ export const LABEL_HEIGHT = 550;        //? Высота бирки
 let labelNameControl;
 
 //! адрес 1
-export const set = {                    //? ID станов
-    '350-Stan': 170,
-    '210-Stan': 174,
-    '212-Stan': 162,
-};
-// export const set = {                    //? ID станов локал
-//     '350-Stan': 77,
-//     '210-Stan': 77,
-//     '212-Stan': 77,
+// export const set = {                    //? ID станов
+//     '350-Stan': 170,
+//     '210-Stan': 174,
+//     '212-Stan': 162,
 // };
+export const set = {                    //? ID станов локал
+    '350-Stan': 77,
+    '210-Stan': 77,
+    '212-Stan': 77,
+};
 
 //! Адрес 2
-export const set2 = 197;                    //? Тест
+//export const set2 = 197;                    //? Тест
 //export const set2 = 137;                  //? Прод
-// export const set2 = 30;                  //? Локал
+export const set2 = 30;                  //? Локал
 
-// export const ports = {                   //? Порт файловой системы локал
-//     '350-Stan': 7070,
-//     '210-Stan': 7071,
-//     '212-Stan': 7072,
+export const ports = {                   //? Порт файловой системы локал
+    '350-Stan': 7070,
+    '210-Stan': 7071,
+    '212-Stan': 7072,
+};
+
+// export const ports = {                   //? Порт файловой системы прод-тест
+//     '350-Stan': 7099,
+//     '210-Stan': 7099,
+//     '212-Stan': 7099,
 // };
-export const ports = 7099;                  //? Порт файловой системы
 
 //! Порт базы данных
-export const portDB = '10.23.197.201:5151';             //? Порт базы данных тест
-//export const portDB = '10.23.77.30:5151';             //? Порт базы данных локал
+//export const portDB = '10.23.197.201:5151';             //? Порт базы данных тест
+export const portDB = '10.23.77.30:5151';             //? Порт базы данных локал
 //export const portDB = '10.23.197.201:5252';           //? Порт базы пров прод
 
 
@@ -57,7 +62,7 @@ export let jobTitle;
 import { getLoginsUser, controlGetAutoPrint, getDataUser, editorDataUser, deleteUser, addNewUser, clearDataUser } from "./Functions/function-management/management-user.js";
 import { openLabelEditorSection, openUserSection, openLogoEditorSection } from "./Functions/function-management/management-section.js";
 import { authorizationBack } from "./Functions/authorization.js";
-import { constructorlabelCode } from "./Functions/tagCodeConstructor.js";
+import { constructorlabelCode, transformBarCode, transformBarCodeRevers } from "./Functions/tagCodeConstructor.js";
 import { labelCode, logoNameBak, sizeString, handPrint, autoHandPrint, defaultLabelNameStan, labelName, stanTarget, alertHandPrint, alertAutoHandPrint } from "./Functions/backendRequests.js";
 import { simbolOn, simbolOff } from "./Functions/openSimbol.js";
 import { themeOn, themeCookie, tagColor } from "./Functions/theme.js";
@@ -655,7 +660,7 @@ function fattyOff() {
 //TODO: Функция отвечающая за Штрихкод----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //* Функция Вставки штрихкода
-export function insertBarCode(left, top) {
+export function insertBarCode(left, top, position) {
     let div = document.createElement('div');                            //? Создаём div блок
     let imgBar = document.createElement("img");                         //? Создаём img блок
     let text = document.createElement('p');                             //? Создаём блок p
@@ -663,7 +668,11 @@ export function insertBarCode(left, top) {
     div.style.textAlign = 'center';                                     //? Присваиваем стиль div блоку
     div.style.zIndex = '4';                                             //? Присваиваем стиль div блоку
     div.style.position = 'absolute';                                    //? Присваиваем стиль div блоку
-    div.style.transform = 'rotate(0deg)';                               //? Поворот штрихкода
+    if (typeof position === 'string') {
+        div.style.transform = transformBarCodeRevers(position);
+    } else {
+        div.style.transform = 'rotate(0deg)';
+    };
     div.id = 'divBar';                                                  //? Присваиваем id div блоку
     div.onclick = function () { selectionOfElements(div) };             //? Присваиваем атрибут онклик с вызовом функции
     imgBar.src = "/images/barcode.png";                                 //? Вставляем svg в блок img
@@ -821,7 +830,7 @@ async function savelabelBack(inputHistory) {
     if (!namelabel) { return };
     let stan = stanTarget();
     try {
-        await fetch(`http://10.23.${set[stan]}.${set2}:${ports}/label/Changelabel?labelName=${encodeURI(namelabel)}`,
+        await fetch(`http://10.23.${set[stan]}.${set2}:${ports[stan]}/label/Changelabel?labelName=${encodeURI(namelabel)}`,
             {
                 method: 'post',
                 headers: {

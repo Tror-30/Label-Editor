@@ -141,7 +141,7 @@ const tagCode = {
             leftWidth = w + left;
             left = leftWidth;
             top = top + w;
-        } else { };
+        };
         let topPosition = String(2 * (550 - (top + height)));                                       //? Получаем позицию
         let code = fo + topPosition + ',' + String(2 * left) + ar + stringSize + fd + string + fs;  //? Формируем код строки
         return (code);
@@ -186,22 +186,29 @@ const tagCode = {
     },
     //* Функция формирования Кода штрихкода
     barCode: function (child) {
+        let rotation = child.style.transform;
         let bar = child;
         let fo = "^FO";
         let fs = '^FS(NL)';
         let fd = "^FD";
-        let bc = '^BC';
+        let bc = transformBarCode(rotation);
         let fw = '^FW';
         let by = "^BY3,1,110";
         let leftPosBar = Number(bar.style.left.split('px').join(""));
         let heightBar = Number(bar.offsetHeight);
+        let widthBar = Number(bar.offsetWidth);
         let topPosBar = Number(bar.style.top.split('px').join(""));
-        let top = String((550 - (topPosBar + heightBar)) * 2);
+        if (rotation === "rotate(90deg)" || rotation === "rotate(270deg)") {                      //? Проверка на поворот строки
+            let w = widthBar / 2;
+            leftPosBar = w + leftPosBar;
+            topPosBar = topPosBar + w;
+        };
+        let topPosition = String(2 * (550 - (topPosBar + heightBar)));
         let left = String(leftPosBar * 2);
         let product = "<<ProductType>>-";
         let heat = '<<HEAT>>-';
         let coil = '<<COIL_NO>>';
-        let barcode = fo + top + ',' + left + fw + by + bc + fd + product + heat + coil + fs;
+        let barcode = fo + topPosition + ',' + left + fw + by + bc + fd + product + heat + coil + fs;
         return (barcode);
     },
     //* Функция расчёта размера шрифта строки
@@ -232,6 +239,32 @@ const tagCode = {
         };
         return (pos);
     },
+    transformBarCode: function (rotation) {
+        let position;
+        if (rotation === 'rotate(270deg)') {
+            position = '^BCN';
+        } else if (rotation === 'rotate(0deg)') {
+            position = '^BCR';
+        } else if (rotation === 'rotate(90deg)') {
+            position = '^BCI';
+        } else if (rotation === 'rotate(180deg)') {
+            position = '^BCB';
+        };
+        return (position);
+    },
+    transformBarCodeRevers: function (position) {
+        let rotation;
+        if (position === '^BCN') {
+            rotation = 'rotate(270deg)';
+        } else if (position === '^BCR' || position === '^BC') {
+            rotation = 'rotate(0deg)';
+        } else if (position === '^BCI') {
+            rotation = 'rotate(90deg)';
+        } else if (position === '^BCB') {
+            rotation = 'rotate(180deg)';
+        };
+        return (rotation);
+    },
 };
 export const calculateSize = tagCode.calculateSize;
 export const transformStringBack = tagCode.transformStringBack;
@@ -242,4 +275,6 @@ export const logoCodeNext = tagCode.logoCodeNext;
 export const stringCode = tagCode.stringCode;
 export const rotetString = tagCode.rotetString;
 export const barCode = tagCode.barCode;
+export const transformBarCode = tagCode.transformBarCode;
+export const transformBarCodeRevers = tagCode.transformBarCodeRevers;
 export const numberTagsBack = tagCode.numberTagsBack;
