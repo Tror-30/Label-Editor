@@ -27,14 +27,14 @@ const tagCode = {
         let pq1y = numberTags();                                                    //? Получаем количество бирок
         const pon = "^PON";                                                         //? Часть кода бирки
         const lt = "^LT0";                                                          //? Часть кода бирки
-        const pw = "^PW1300";                                                       //? Часть кода бирки
+        const pw = "^PW1200";                                                       //? Часть кода бирки
         const lh = "^LH0,0";                                                        //? Часть кода бирки
         const fwr = "^FWR";                                                         //? Часть кода бирки
         const prc = "^PRC";                                                         //? Часть кода бирки
         const mmt = "^MMT";                                                         //? Часть кода бирки
         const fs = "^FS";                                                           //? Часть кода бирки
         const cwt = "^CWT,";                                                        //? Часть кода бирки
-        const e = 'E:TT003M_.FNT';                                                  //? Часть кода бирки
+        const e = 'E:TT0003M_.FNT';                                                 //? Часть кода бирки
         const ci = '^CI28';                                                         //? Часть кода бирки
         const cft = "^CFT,0,0";                                                     //? Часть кода бирки
         return (xa + nl + pq1y + pon + lt + pw + lh + nl + fwr + prc + mmt + fs + cwt + e + ci + cft + nl);  //? Формируем шапку

@@ -126,3 +126,26 @@ export async function getFile() {
         return;
     };
 };
+
+export async function postImgCodeLogo() {
+    let error = document.getElementById('errors');
+    let errorText = document.getElementById('text-error');
+    let blockImg = document.getElementById('img-logo-block');
+    let img = document.createElement('img');
+    let objectPost;
+    try {
+        objectPost = await fetch(`http://10.23.${set[stan]}.${set2}:${ports[stan]}/...`, {
+            method: 'POST',
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                "Content-type": "application/json"
+            },
+        })
+    } catch {
+        errorText.innerText = 'Ошибка:\nНет связи с базой данных!\nОбратитесь в Службу Поддержки по номеру: 1032.';
+        errorText.style.display = 'block';
+        error.style.display = 'block';
+        return;
+    };
+    closeError();
+};

@@ -5,6 +5,7 @@ import { constructorlabelCode, numberTagsBack } from "./tagCodeConstructor.js";
 import { set, ports, set2 } from "../label-cod.js";
 import { controlGetAutoPrint } from "./function-management/management-user.js";
 import { listLabelCode } from './function-management/management-content.js'
+import { choicePrinter } from "./choice-printer.js";
 
 //! Функции отвечающие за работу с Бекендом
 const requests = {
@@ -42,7 +43,7 @@ const requests = {
                 };
             };
             codelabel = codelabel.replace(stringCode, '');                                          //? Удаляем строку из бирки
-        } else if (stringCode.includes('^A@R')) {
+        } else if (stringCode.includes('^A')) {
             parsingString(stringCode);                                                              //? Вызываем функцию разбора строки
             codelabel = codelabel.replace(stringCode, '');                                          //? Удаляем строку из бирки
         } else if (stringCode.includes('^BY')) {
@@ -185,7 +186,7 @@ const requests = {
     //* Функция определения жирности шрифта строки с бека
     boldFont: function (position) {
         let bold;
-        if (position === '^A0R,' && position === '^A0I,' && position === '^A0B,' && position === '^A0N,') {
+        if (position === '^A0R,' || position === '^A0I,' || position === '^A0B,' || position === '^A0N,') {
             bold = 'bolder';
         } else {
             bold = 'normal';

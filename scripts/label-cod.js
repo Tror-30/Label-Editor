@@ -5,11 +5,12 @@ export const LABEL_HEIGHT = 550;        //? Высота бирки
 let labelNameControl;
 
 //! адрес 1
-// export const set = {                    //? ID станов
+// export const set = {                    //? ID станов прод-тест
 //     '350-Stan': 170,
 //     '210-Stan': 174,
 //     '212-Stan': 162,
 // };
+
 export const set = {                    //? ID станов локал
     '350-Stan': 77,
     '210-Stan': 77,
@@ -68,7 +69,7 @@ import { simbolOn, simbolOff } from "./Functions/openSimbol.js";
 import { themeOn, themeCookie, tagColor } from "./Functions/theme.js";
 import { moveUp, moveDown, moveLeft, moveRight, turnRight, turnLeft, resetSelection, elementBorder } from './Functions/moveElements.js';
 import { addCodeLabel, deleteLabel, editorLabelCode } from "./Functions/function-management/management-content.js";
-
+import { targetPrinter1, targetPrinter2 } from "./Functions/choice-printer.js";
 //--------------------------------------------------------------------------------------------------------------------------------------------
 
 //TODO: Получение данных управления/*********************************************************************************************************/
@@ -130,6 +131,8 @@ document.getElementById('clear-data-user').addEventListener('click', clearDataUs
 document.getElementById('select-label-name').addEventListener("change", addCodeLabel);
 document.getElementById('button-delete-label-code').addEventListener('click', deleteLabel);
 document.getElementById('button-save-label-code').addEventListener('click', editorLabelCode);
+document.getElementById('choice-printer-1').addEventListener('click', targetPrinter1);
+document.getElementById('choice-printer-2').addEventListener('click', targetPrinter2);
 
 let selectHistory = document.querySelector('.select-box-history');                          //? Получение селекта шаблонов
 let soValue = document.getElementById('soValue');                                           //? Получение инпута списка шаблонов
