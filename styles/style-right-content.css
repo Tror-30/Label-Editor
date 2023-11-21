@@ -50,9 +50,9 @@
     display: inline-flex;
     bottom: 7vh;
     right: 60vh;
+    text-align: center;
     font-size: 12px;
-    width: 100px;
-    height: 50px;
+    padding: 10px;
     border-radius: 20px;
     margin-top: 10px;
     background-color: rgb(254, 254, 255);
@@ -62,10 +62,10 @@
 #sending {
     font-size: 12px;
     display: inline-flex;
+    text-align: center;
     bottom: 7vh;
     right: 20vh;
-    width: 100px;
-    height: 50px;
+    padding: 10px;
     border-radius: 20px;
     margin-top: 10px;
     background-color: rgb(254, 254, 255);
@@ -76,13 +76,21 @@
     border-radius: 5px;
 }
 
+#сhoice-printer-block-auto,
+#сhoice-printer-block-manual,
 #row-block-print {
     display: flex;
+    text-align: center;
+    justify-content: center;
 }
 
 #button-printer,
 #text-printer {
     display: block;
+}
+
+#text-printer {
+    margin-right: 20%;
 }
 
 #text-printer-1,
@@ -107,38 +115,27 @@
     bottom: 13vh;
 }
 
-#сhoice-printer-block {
-    display: flex;
-    margin: 20px;
-    margin-top: 40px;
-}
-
-
-#choice-printer-1 {
-    margin-right: 10px;
-    color: rgb(255, 255, 255);
-    font-size: 20px;
-    border-radius: 10px;
-    padding: 5px;
-    margin-left: 0;
-    margin: auto;
-    cursor: pointer;
-}
-
-#choice-printer-2 {
-    color: rgb(255, 255, 255);
-    font-size: 20px;
-    border-radius: 10px;
-    padding: 5px;
-    margin-left: 0;
-    margin: auto;
-    cursor: pointer;
+.butoon-print-label {
+    display: inline-flex;
+    border-radius: 20px;
+    padding: 10px;
+    margin-right: 20px;
 }
 
 .red-pounter {
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    padding: 5px;
     background-color: red;
+    border-radius: 5px;
+    font-size: 15px;
 }
 
 .grey-pointer {
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    padding: 5px;
     background-color: rgb(161, 168, 168);
+    border-radius: 5px;
+    font-size: 15px;
 }

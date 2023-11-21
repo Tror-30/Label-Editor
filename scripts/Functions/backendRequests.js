@@ -5,7 +5,7 @@ import { constructorlabelCode, numberTagsBack } from "./tagCodeConstructor.js";
 import { set, ports, set2 } from "../label-cod.js";
 import { controlGetAutoPrint } from "./function-management/management-user.js";
 import { listLabelCode } from './function-management/management-content.js'
-import { choicePrinter } from "./choice-printer.js";
+import { choicePrinterAuto, choicePrinterManual } from "./choice-printer.js";
 
 //! Функции отвечающие за работу с Бекендом
 const requests = {
@@ -62,7 +62,6 @@ const requests = {
         let stan = stanTarget();
         let lnr;
         try {
-            strCod = strCod.substr(1, 90);
             lnr = await fetch(`http://10.23.${set[stan]}.${set2}:${ports[stan]}/Label/LogoFromCode`,
                 {
                     method: 'post',
@@ -285,6 +284,7 @@ const requests = {
         let namelabel = document.getElementById('name-history-label').value;
         let labelCode = await constructorlabelCode();
         let stan = stanTarget();
+        let printer = choicePrinterAuto();
         try {
             await fetch(`http://10.23.${set[stan]}.${set2}:${ports[stan]}/Label/ChangePattern?OnSKS=true`, {
                 method: 'post',
@@ -317,6 +317,7 @@ const requests = {
         let errorText = document.getElementById('text-error');
         let labelCode = await constructorlabelCode();
         let stan = stanTarget();
+        let printer = choicePrinterManual();
         try {
             await fetch(`http://10.23.${set[stan]}.${set2}:${ports[stan]}/Label/ChangePattern?OnSKS=false`, {
                 method: 'post',
@@ -363,3 +364,26 @@ export const logoCodeRevers = requests.logoCodeRevers;
 export const boldFont = requests.boldFont;
 export const sizeString = requests.sizeString;
 export const addlabelNameSelection = requests.addlabelNameSelection;
+
+export async function testPrint() {
+    let error = document.getElementById('errors');
+    let errorText = document.getElementById('text-error');
+    let label = await constructorlabelCode();
+    let printer = choicePrinterManual();
+    let stan = stanTarget();
+    try {
+        await fetch(`http://10.23.${set[stan]}.${set2}:${ports[stan]}/`, {
+            method: 'post',
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify({ body: label }),
+        });
+    } catch {
+        errorText.innerText = 'Ошибка:\nНе удалось отправить на пробную печать!\nОбратитесь в Службу Поддержки по номеру: 1032.';
+        errorText.style.display = 'block';
+        error.style.display = 'block';
+    };
+    closeError();
+};

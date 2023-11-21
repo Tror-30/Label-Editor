@@ -23,7 +23,7 @@ const parsing = {
         stringCode = stringCode.replace(/\d+\^/, '^');                              //? Удаляем из общей строки отступ слева
         let position = String(stringCode.match(/.*?,/));                            //? Получаем параметр позиции элемента
         stringCode = stringCode.replace(/.*?,/, '');                                //? Удаляем из строки позиции элементов
-        let size = String(stringCode.match(/(\d+),(\d+)/));                         //? Пулучаем размер шрифта
+        let size = String(stringCode.match(/\d+,\d+/));                             //? Пулучаем размер шрифта
         let str = String(stringCode.replace(/.*?\^FD/, '').split('^FS').join(''));  //? Получаем содержимое строкового элемента
         if (str.includes('<<')) {
             str = str.replace(/</g, '&lt');                                         //? Экранирование символов <<

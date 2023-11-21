@@ -1,16 +1,13 @@
 //TODO: Функции для работы с меню символы!
-const simbol = {
-    //* Функция вызова меню Символы
-    simbolOn: function () {
-        let tableSimbol = document.getElementById('tableSimbol');                                  //? Получаем Таблицу символов
-        tableSimbol.style.height = "535px";
-    },
-    //* Функция скрытия меню Символы
-    simbolOff: function () {
-        let tableSimbol = document.getElementById('tableSimbol');                                  //? Получаем Таблицу символов
-        tableSimbol.style.height = "0px";
-    }
+
+//* Функция вызова меню Символы
+export function simbolOn() {
+    let tableSimbol = document.getElementById('tableSimbol');                                  //? Получаем Таблицу символов
+    tableSimbol.style.height = "535px";
 };
 
-export const simbolOn = simbol.simbolOn;
-export const simbolOff = simbol.simbolOff;
+//* Функция скрытия меню Символы
+export function simbolOff() {
+    let tableSimbol = document.getElementById('tableSimbol');                                  //? Получаем Таблицу символов
+    tableSimbol.style.height = "0px";
+};

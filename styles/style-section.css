@@ -27,23 +27,27 @@
     background-color: rgb(172, 170, 170);
 }
 
+#button-section-control-print {
+    background-color: rgb(172, 170, 170);
+}
+
 #row-1 {
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
 }
 
 #row-1-left {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
 }
 
 #row-2 {
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
 }
 
 #section-editor {
@@ -55,7 +59,11 @@
     display: none;
 }
 
-#section-add-logo-label{
+#section-control-auto-print {
+    display: none;
+}
+
+#section-add-logo-label {
     background: #176fd7;
     display: none;
 }

@@ -25,39 +25,47 @@ const theme = {
             document.getElementById("row").style.backgroundColor = '#293133';
             document.getElementById("section-UserLay-editor").style.backgroundColor = '#293133';
             document.getElementById("section-add-logo-label").style.backgroundColor = '#293133';
+            document.getElementById("section-control-auto-print").style.backgroundColor = '#293133';
             document.getElementById('content-left').style.backgroundColor = '#293133';
             document.getElementById('container-right').style.backgroundColor = '#293133';
             document.getElementById('label-background').style.backgroundImage = `url("/SVG/label-color/label-${urlLabel[valueSelect]}-2.svg")`;
+            document.getElementById('label-background-control').style.backgroundImage = `url("/SVG/label-color/label-${urlLabel[valueSelect]}-2.svg")`;
             document.cookie = 'theme=dark';
         } else {
             document.getElementById("row").style.backgroundColor = '#176fd7';
             document.getElementById("section-UserLay-editor").style.backgroundColor = '#176fd7';
+            document.getElementById("section-control-auto-print").style.backgroundColor = '#176fd7';
             document.getElementById("section-add-logo-label").style.backgroundColor = '#176fd7';
             document.getElementById('content-left').style.backgroundColor = '#176fd7';
             document.getElementById('container-right').style.backgroundColor = '#176fd7';
             document.getElementById('label-background').style.backgroundImage = `url("/SVG/label-color/label-${urlLabel[valueSelect]}.svg")`;
+            document.getElementById('label-background-control').style.backgroundImage = `url("/SVG/label-color/label-${urlLabel[valueSelect]}.svg")`;
             document.cookie = 'theme=light';
         };
     },
     //* Функция установки темы из куки при загрузке страницы
     themeCookie: function () {
-        if(!document.cookie){return};
+        if (!document.cookie) { return };
         let theme = document.cookie.match(/theme=(\w+)/)[1];
         if (theme === 'dark') {
             document.getElementById("row").style.backgroundColor = '#293133';
             document.getElementById("section-UserLay-editor").style.backgroundColor = '#293133';
             document.getElementById("section-add-logo-label").style.backgroundColor = '#293133';
+            document.getElementById("section-control-auto-print").style.backgroundColor = '#293133';
             document.getElementById('content-left').style.backgroundColor = '#293133';
             document.getElementById('container-right').style.backgroundColor = '#293133';
             document.getElementById('label-background').style.backgroundImage = `url("/SVG/label-color/label-white-2.svg")`;
+            document.getElementById('label-background-control').style.backgroundImage = `url("/SVG/label-color/label-white-2.svg")`;
             document.getElementById('hidcheck').checked = true;
         } else if (theme === 'light') {
             document.getElementById("row").style.backgroundColor = '#176fd7';
             document.getElementById("section-UserLay-editor").style.backgroundColor = '#176fd7';
             document.getElementById("section-add-logo-label").style.backgroundColor = '#176fd7';
+            document.getElementById("section-control-auto-print").style.backgroundColor = '#176fd7';
             document.getElementById('content-left').style.backgroundColor = '#176fd7';
             document.getElementById('container-right').style.backgroundColor = '#176fd7';
             document.getElementById('label-background').style.backgroundImage = `url("/SVG/label-color/label-white.svg")`;
+            document.getElementById('label-background-control').style.backgroundImage = `url("/SVG/label-color/label-white.svg")`;
             document.getElementById('hidcheck').checked = false;
         } else {
             return;

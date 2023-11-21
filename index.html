@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="/styles/style-section.css">
     <link rel="stylesheet" href="/styles/style-section-content/section-manag-content.css">
     <link rel="stylesheet" href="/styles/style-section-user/section-user.css">
+    <link rel="stylesheet" href="/styles/style-section-control-print/style-control-print.css">
 </head>
 
 <body>
@@ -77,6 +78,7 @@
         <div id="control-button">
             <div class="button-control-section" id="button-section-editor">Редактор Шаблонов</div>
             <div class="button-control-section" id="button-section-user-editor">Редактор Пользователей</div>
+            <div class="button-control-section" id="button-section-control-print">Контроль печати</div>
             <div class="button-control-section" id="button-section-logo-editor">Редактор Данных</div>
         </div>
         <!--? Секция редактирования бирки -->
@@ -86,9 +88,28 @@
                 <div id="container-left">
                     <h2 id="header-left">Позиционирование данных</h2>
                     <div id="logo-left-select">
-                        <p id="left-select-logo">Выберите логотип</p>
-                        <div id="logo-select">
-                            <select id="logo_selection" name="select-logos">
+                        <div class="block-header-select-left-panel">
+                            <p id="left-select-logo">Выберите логотип</p>
+                            <div id="logo-select">
+                                <select id="logo_selection" name="select-logos">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="block-header-select-left-panel-2">
+                            <p id="headet-select-backgraund-label">Цвет бирки</p>
+                            <select id="select-label-backgraund">
+                                <option value="white">Белый</option>
+                                <option value="blue">Синий</option>
+                                <option value="deepskyblue">Тёмно-голубой</option>
+                                <option value="red">Красная</option>
+                                <option value="coral">Коралл</option>
+                                <option value="saddlebrown">Светло-коричневый</option>
+                                <option value="hotpink">Ярко-Розовый</option>
+                                <option value="violet">Фиолетовый</option>
+                                <option value="orang">Оранжевый</option>
+                                <option value="yellow">Жёлтый</option>
+                                <option value="limegreen">Салатовый</option>
+                                <option value="dimgray">Тусклый-серый</option>
                             </select>
                         </div>
                     </div>
@@ -224,37 +245,30 @@
                 </div>
                 <!--? Контент справа-->
                 <div id="container-right">
-                    <h2 id="haeder-right">Бирка</h2>
-                    <select id="select-label-backgraund">
-                        <option value="white">Белый</option>
-                        <option value="blue">Синий</option>
-                        <option value="deepskyblue">Тёмно-голубой</option>
-                        <option value="red">Красная</option>
-                        <option value="coral">Коралл</option>
-                        <option value="saddlebrown">Светло-коричневый</option>
-                        <option value="hotpink">Ярко-Розовый</option>
-                        <option value="violet">Фиолетовый</option>
-                        <option value="orang">Оранжевый</option>
-                        <option value="yellow">Жёлтый</option>
-                        <option value="limegreen">Салатовый</option>
-                        <option value="dimgray">Тусклый-серый</option>
-                    </select>
+                    <div class="header-block-container-right">
+                        <h2 id="haeder-right">Бирка</h2>
+                    </div>
                     <div id="label-content">
                         <div id="label-background">
                         </div>
                     </div>
                     <div id="row-block-print">
                         <div id="text-printer">
-                            <p id="text-printer-1">Отправить шаблон на ручную печать</p>
-                            <button id="chyase-label">Отправить шаблон в руч.</button>
-                        </div>
-                        <div id="сhoice-printer-block">
-                            <button class="red-pounter" id="choice-printer-1">Принтер-1</button>
-                            <button class="grey-pointer" id="choice-printer-2">Принтер-2</button>
+                            <p id="text-printer-1">Ручную печать</p>
+                            <div id="сhoice-printer-block-manual">
+                                <button class="red-pounter" id="choice-printer-1-manual">Принтер-1</button>
+                                <button class="grey-pointer" id="choice-printer-2-manual">Принтер-2</button>
+                            </div>
+                            <button class="butoon-print-label" id="print-label">Пробная печать шаблона</button>
+                            <button id="chyase-label">Отправить</button>
                         </div>
                         <div id="button-printer">
-                            <p id="text-printer-2">Отправить шаблон на авто печать</p>
-                            <button id="sending">Отправить шаблон в авто.</button>
+                            <p id="text-printer-2">Авто печать</p>
+                            <div id="сhoice-printer-block-auto">
+                                <button class="red-pounter" id="choice-printer-1-auto">Принтер-1</button>
+                                <button class="grey-pointer" id="choice-printer-2-auto">Принтер-2</button>
+                            </div>
+                            <button id="sending">Отправить</button>
                         </div>
                     </div>
                     <div id="label-borders">
@@ -310,12 +324,22 @@
                             <select name="select-login-user" id="select-login">
                             </select>
                         </div>
-                        <div id="section-management-user-date">
-                            <p id="header-list-get-auto-print">История отправлений на Авто. Печать</p>
-                            <div id="history-get-auto-print">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--? Секция контроля за отправкой на авто печать-->
+        <section id="section-control-auto-print">
+            <div id="row-block-print-section">
+                <div id="label-block">
+                    <div id="label-background-control">
 
-                            </div>
-                        </div>
+                    </div>
+                </div>
+                <div id="section-management-user-date">
+                    <p id="header-list-get-auto-print">История отправлений на Авто. Печать</p>
+                    <div id="history-get-auto-print">
+
                     </div>
                 </div>
                 <div id="row-1-right">
@@ -483,6 +507,12 @@
     </section>
     <!--? Подвал-->
     <footer>
+        <div id="alert-version">
+            <p id="version-text">
+                В версии 0.1.5 Добавлены возможности отправки печати на оба принтера по отдельности!<br>
+                Исправлены размеры логотипов Бразилия!
+            </p>
+        </div>
         <div id="footer-block">
             <div id="text-1">
                 <p id="footer-version">Версия приложения: 0.1.2</p>

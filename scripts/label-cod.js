@@ -61,15 +61,16 @@ export let jobTitle;
 //TODO: Импорт Функций/**********************************************************************************************************************/
 
 import { getLoginsUser, controlGetAutoPrint, getDataUser, editorDataUser, deleteUser, addNewUser, clearDataUser } from "./Functions/function-management/management-user.js";
-import { openLabelEditorSection, openUserSection, openLogoEditorSection } from "./Functions/function-management/management-section.js";
+import { openLabelEditorSection, openUserSection, openLogoEditorSection, openControlPrintSection } from "./Functions/function-management/management-section.js";
 import { authorizationBack } from "./Functions/authorization.js";
 import { constructorlabelCode, transformBarCode, transformBarCodeRevers } from "./Functions/tagCodeConstructor.js";
-import { labelCode, logoNameBak, sizeString, handPrint, autoHandPrint, defaultLabelNameStan, labelName, stanTarget, alertHandPrint, alertAutoHandPrint } from "./Functions/backendRequests.js";
+import { labelCode, logoNameBak, sizeString, handPrint, autoHandPrint, defaultLabelNameStan, labelName, stanTarget, alertHandPrint, alertAutoHandPrint, testPrint } from "./Functions/backendRequests.js";
 import { simbolOn, simbolOff } from "./Functions/openSimbol.js";
 import { themeOn, themeCookie, tagColor } from "./Functions/theme.js";
 import { moveUp, moveDown, moveLeft, moveRight, turnRight, turnLeft, resetSelection, elementBorder } from './Functions/moveElements.js';
 import { addCodeLabel, deleteLabel, editorLabelCode } from "./Functions/function-management/management-content.js";
-import { targetPrinter1, targetPrinter2 } from "./Functions/choice-printer.js";
+import { targetPrinterManual1, targetPrinterManual2, targetPrinterAuto2, targetPrinterAuto1 } from "./Functions/choice-printer.js";
+
 //--------------------------------------------------------------------------------------------------------------------------------------------
 
 //TODO: Получение данных управления/*********************************************************************************************************/
@@ -82,6 +83,7 @@ window.addEventListener('load', postControlAutoPrint);
 document.getElementById('button-section-editor').addEventListener('click', openLabelEditorSection);
 document.getElementById('button-section-user-editor').addEventListener('click', openUserSection);
 document.getElementById('button-section-logo-editor').addEventListener('click', openLogoEditorSection);
+document.getElementById('button-section-control-print').addEventListener('click', openControlPrintSection);
 window.addEventListener('load', themeCookie);                                               //? Обработчик при загрузки страницы проверяет на сохранение темы
 document.getElementById('hidcheck').addEventListener('change', themeOn);                    //? Переключение темы
 document.getElementById('buttonSinbol').addEventListener('click', simbolOn);                //? Открыть список символов
@@ -131,13 +133,25 @@ document.getElementById('clear-data-user').addEventListener('click', clearDataUs
 document.getElementById('select-label-name').addEventListener("change", addCodeLabel);
 document.getElementById('button-delete-label-code').addEventListener('click', deleteLabel);
 document.getElementById('button-save-label-code').addEventListener('click', editorLabelCode);
-document.getElementById('choice-printer-1').addEventListener('click', targetPrinter1);
-document.getElementById('choice-printer-2').addEventListener('click', targetPrinter2);
+document.getElementById('choice-printer-1-manual').addEventListener('click', targetPrinterManual1);
+document.getElementById('choice-printer-2-manual').addEventListener('click', targetPrinterManual2);
+document.getElementById('choice-printer-1-auto').addEventListener('click', targetPrinterAuto1);
+document.getElementById('choice-printer-2-auto').addEventListener('click', targetPrinterAuto2);
+document.getElementById('print-label').addEventListener('click', testPrint);
 
 let selectHistory = document.querySelector('.select-box-history');                          //? Получение селекта шаблонов
 let soValue = document.getElementById('soValue');                                           //? Получение инпута списка шаблонов
 let optionSearch = document.getElementById('optionSearch');                                 //? 
 let ulHistory = document.querySelector('.option-history');                                  //? Обработчик на блоке списка бирки
+
+//? ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+let blockVersion = document.getElementById('text-1');
+blockVersion.onmousemove = function openVersion() {
+    document.getElementById('alert-version').style.display = 'inline-flex';
+};
+blockVersion.onmouseout = function closeVersion() {
+    document.getElementById('alert-version').style.display = 'none';
+}
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

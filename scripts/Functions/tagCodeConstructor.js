@@ -20,6 +20,7 @@ const tagCode = {
         let readyTagCode = head + logoCod + center + barcode + xz;                              //? Формируем готовый код бирки
         return (readyTagCode);
     },
+
     //* Функция формирования шапки кода бирки
     hade: async function () {
         const nl = '(NL)';                                                          //? nl обзац для бека
@@ -39,6 +40,7 @@ const tagCode = {
         const cft = "^CFT,0,0";                                                     //? Часть кода бирки
         return (xa + nl + pq1y + pon + lt + pw + lh + nl + fwr + prc + mmt + fs + cwt + e + ci + cft + nl);  //? Формируем шапку
     },
+
     //* Функция расчёта количества бирок из бека
     numberTagsBack: function (tag) {
         switch (tag) {
@@ -64,6 +66,7 @@ const tagCode = {
                 break;
         }
     },
+
     //* Функция расчёта количества бирок в код бирки
     numberTags: function () {
         let numTag = document.getElementById('number-tags').value;
@@ -92,6 +95,7 @@ const tagCode = {
         }
         return (stringTag);
     },
+
     //* Функция формирования кода логотипа
     logoCodeNext: async function (child) {
         let position;
@@ -115,6 +119,7 @@ const tagCode = {
         position = topPos + ',' + leftPos;
         return (fo + position + logotip + nl);
     },
+
     //* Функция формирования кода созданных строковых элементов
     stringCode: function (child) {
         let size = Number(child.style.fontSize.split('px').join(""));                               //? Получаем размер символов
@@ -146,6 +151,7 @@ const tagCode = {
         let code = fo + topPosition + ',' + String(2 * left) + ar + stringSize + fd + string + fs;  //? Формируем код строки
         return (code);
     },
+
     //* Функция формирования кода поворота строки
     rotetString: function (transform, sizeFatty) {
         let pos;
@@ -184,6 +190,7 @@ const tagCode = {
         };
         return (pos);
     },
+
     //* Функция формирования Кода штрихкода
     barCode: function (child) {
         let rotation = child.style.transform;
@@ -211,6 +218,7 @@ const tagCode = {
         let barcode = fo + topPosition + ',' + left + fw + by + bc + fd + product + heat + coil + fs;
         return (barcode);
     },
+
     //* Функция расчёта размера шрифта строки
     calculateSize: function (size) {
         if (size === 16) {
@@ -223,6 +231,7 @@ const tagCode = {
             return ('60,50,');
         };
     },
+
     //* Функция формирования кода поворота строки с бека
     transformStringBack: function (position) {
         let pos;
@@ -239,6 +248,7 @@ const tagCode = {
         };
         return (pos);
     },
+
     transformBarCode: function (rotation) {
         let position;
         if (rotation === 'rotate(270deg)') {
@@ -252,6 +262,7 @@ const tagCode = {
         };
         return (position);
     },
+
     transformBarCodeRevers: function (position) {
         let rotation;
         if (position === '^BCN') {
