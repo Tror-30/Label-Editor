@@ -270,7 +270,7 @@ document.addEventListener('keydown', function (event) {
 //* Функция Выделения элементов бирки
 function selectionOfElements(idOfSelectedElement) {
     let child = idOfSelectedElement;
-    let rowDivBlock = document.getElementById('label-borders').children;                        //? Получаем МАССИВ дочерних элементов дива
+    let rowDivBlock = document.getElementById('label-background').children;                        //? Получаем МАССИВ дочерних элементов дива
     for (let children of rowDivBlock) {                                                         //? Снимем выделение со всех элементов
         children.style.border = '0px';
     };
@@ -530,7 +530,7 @@ function choiseSrcImg(srcLogo, xPosition, xName, top, left) {
     imgLogo.src = srcLogo;
     imgLogo.onload = () => positionLogolabel(top, left, divId);
     parentDiv.onclick = () => selectionOfElements(parentDiv);
-    document.querySelector('#label-borders').appendChild(parentDiv);
+    document.querySelector('#label-background').appendChild(parentDiv);
     document.getElementById('logo_selection').value = '';
     modifiet = 1;
     return (parentDiv);
@@ -592,7 +592,7 @@ export function addString(str, left, top, size, bold, posit) {
         } else {
             divText.innerHTML = '';
         };
-        document.getElementById('label-borders').append(divText);                                   //? Вставляем блок div
+        document.getElementById('label-background').append(divText);                                   //? Вставляем блок div
         document.getElementById('editor-text-string').value = "";                                   //? Очистить стороку из инпута
         if (typeof top === "string") {                                                              //? Проверка на тип пришедших данных
             posit = divText.style.transform;
@@ -701,7 +701,7 @@ export function insertBarCode(left, top, position) {
     div.appendChild(imgBar);                                            //? Вставляем в div блок img блок
     div.appendChild(text);                                              //? Вставляем в div блок p блок
     imgBar.onload = () => positionBarCode(top, left, div.id);
-    document.querySelector('#label-borders').appendChild(div);          //? Вставляем в родительский блок div блок
+    document.querySelector('#label-background').appendChild(div);          //? Вставляем в родительский блок div блок
     modifietOn();
 };
 function positionBarCode(top, left, barId) {
@@ -788,7 +788,7 @@ async function inputTextHistory(liHistory) {
 };
 //* Функция Почистить бирку
 export function сleanTheTag() {
-    document.getElementById('label-borders').innerHTML = '';                                 //? Очищаем бирку
+    document.getElementById('label-background').innerHTML = '';                                 //? Очищаем бирку
     document.getElementById('editor-text-string').value = "";                                //? Очистить стороку из инпута
     document.getElementById('add-string').innerText = 'Добавить';
     document.getElementById('input-padding-bottom').value = '';

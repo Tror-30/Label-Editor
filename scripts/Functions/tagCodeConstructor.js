@@ -7,7 +7,7 @@ const tagCode = {
         let logoCod = '';
         let center = '';
         let barcode = '';
-        for (let child of document.getElementById('label-borders').children) {                  //? Получаем данные из каждого элемента массива дочерних элементов
+        for (let child of document.getElementById('label-background').children) {                  //? Получаем данные из каждого элемента массива дочерних элементов
             if (child.id.includes('logo')) {
                 logoCod += await logoCodeNext(child);
             } else if (child.id.includes('string')) {

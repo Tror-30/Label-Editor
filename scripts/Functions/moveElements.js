@@ -48,7 +48,7 @@ const moveElements = {
         let error = document.getElementById('errors');
         let errorText = document.getElementById('text-error');
         if (!id) return;                                                                //? Условие если нет элемента выйти из функции
-        let rowBlock = document.getElementById("label-borders");                        //? Получаем родительский блок
+        let rowBlock = document.getElementById("label-background");                        //? Получаем родительский блок
         let topRowHeidth = Number(rowBlock.clientHeight);                               //? Получаем внутреннюю высоту родительского элемента
         let idTrans = id.style.transform;                                               //? Получаем значение трашсформ выделенного блока
         let idHeidth = Number(id.offsetHeight);                                         //? Получаем наружную высоту выделенного блока
@@ -136,7 +136,7 @@ const moveElements = {
         let error = document.getElementById('errors');
         let errorText = document.getElementById('text-error');
         if (!id) return;                                                                                //? Условие если нет элемента выйти из функции
-        let rowBlock = document.getElementById("label-borders");                                        //? Получаем родительский блок
+        let rowBlock = document.getElementById("label-background");                                        //? Получаем родительский блок
         let topRowWidth = Number(rowBlock.clientWidth);                                                 //? Получаем внутреннюю ширину родительского элемента
         let idWidth = Number(id.offsetWidth);                                                           //? Получаем наружную ширину выделенного блока
         let idTrans = id.style.transform;                                                               //? Получаем значение трашсформ выделенного блока
@@ -182,7 +182,7 @@ const moveElements = {
         let error = document.getElementById('errors');
         let errorText = document.getElementById('text-error');
         if (!id) return;                                                                //? Условие если нет элемента выйти из функции
-        let rowBlock = document.getElementById("label-borders");                        //? Получаем родительский блок
+        let rowBlock = document.getElementById("label-background");                        //? Получаем родительский блок
         let topRowHeidth = Number(rowBlock.clientHeight);                               //? Получаем внутреннюю высоту родительского элемента
         let topRowWidth = Number(rowBlock.clientWidth);                                 //? Получаем внутреннюю ширину родительского элемента
         let idHeight = Number(id.offsetHeight);                                         //? Получаем наружную высоту выделенного блока
@@ -217,7 +217,7 @@ const moveElements = {
         let error = document.getElementById('errors');
         let errorText = document.getElementById('text-error');
         if (!id) return;                                                                //? Условие если нет элемента выйти из функции
-        let rowBlock = document.getElementById("label-borders");                        //? Получаем родительский блок
+        let rowBlock = document.getElementById("label-background");                        //? Получаем родительский блок
         let topRowHeidth = Number(rowBlock.clientHeight);                               //? Получаем внутреннюю высоту родительского элемента
         let topRowWidth = Number(rowBlock.clientWidth);                                 //? Получаем внутреннюю ширину родительского элемента
         let idHeight = Number(id.offsetHeight);                                         //? Получаем наружную высоту выделенного блока
@@ -248,7 +248,7 @@ const moveElements = {
     },
     //* Функция получения выделеного элемента
     elementBorder() {
-        let rowDivBlock = document.getElementById('label-borders').children;                                //? Получаем МАССИВ дочерних элементов дива
+        let rowDivBlock = document.getElementById('label-background').children;                                //? Получаем МАССИВ дочерних элементов дива
         let borderedItem;
         for (let id of rowDivBlock) {
             if (id.style.border === "1px solid black") {                                                    //? Проверка элементов на наличие стиля бордер
@@ -261,7 +261,7 @@ const moveElements = {
     },
     //* Функция сброса выделения
     resetSelection() {
-        let rowDivBlock = document.getElementById('label-borders');                     //? Получение родительского блока
+        let rowDivBlock = document.getElementById('label-background');                     //? Получение родительского блока
         //? Снимем выделение со всех элементов
         if (rowDivBlock.hasChildNodes()) {
             let children = rowDivBlock.children;

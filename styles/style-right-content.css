@@ -26,25 +26,15 @@
     background-repeat: no-repeat;
     background-size: auto;
     display: flex;
+    position: relative;
     text-align: center;
     justify-content: center;
     align-items: center;
-    width: 632.5px;
-    height: 620px;
+    width: 630px;
+    height: 550px;
     z-index: 1;
     margin: auto;
 }
-
-#label-borders {
-    margin: auto;
-    position: absolute;
-    top: 102px;
-    left: 1147px;
-    z-index: 2;
-    width: 630px;
-    height: 550px;
-}
-
 
 #chyase-label {
     display: inline-flex;
